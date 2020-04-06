@@ -47,8 +47,8 @@ public class ParentController{
     }  
 
     @GetMapping("/{userID}")
-	public Parent getParent(@PathVariable("userID") String parentID) {
-		return parentService.getParentByParentId(parentID);
+	public Parent getParent(@PathVariable("userID") String userId) {
+		return parentService.getParentByParentId(userId);
 	}
     
     @PostMapping("/createparent")

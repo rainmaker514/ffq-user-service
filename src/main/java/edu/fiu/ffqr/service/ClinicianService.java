@@ -28,8 +28,8 @@ public class ClinicianService {
 		return clinicianRepository.findByUsername(username);
 	}
 	
-	public Clinician getClinicianByClinicianId(String clinicianId) {
-		return clinicianRepository.getByClinicianId(clinicianId);
+	public Clinician getClinicianByClinicianId(String userId) {
+		return clinicianRepository.getByClinicianId(userId);
 	}
 
 	public Clinician getClinicianByAbbreviation(String abbreviation) {
@@ -40,13 +40,14 @@ public class ClinicianService {
 		return clinicianRepository.save(user);
 	}
 	
+	
 	public void delete(String userName) {
 		Clinician fi = clinicianRepository.findByUsername(userName);
 		clinicianRepository.delete(fi);
 	}
 
-	public void deleteById(String clinicianId) {
-		Clinician fi = clinicianRepository.getByClinicianId(clinicianId);
+	public void deleteById(String userId) {
+		Clinician fi = clinicianRepository.getByClinicianId(userId);
 		clinicianRepository.delete(fi);
 	}
 	

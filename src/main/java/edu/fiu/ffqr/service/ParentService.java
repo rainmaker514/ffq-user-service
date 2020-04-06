@@ -28,8 +28,8 @@ public class ParentService {
 		return parentRepository.findByUsername(username);
 	}
 	
-	public Parent getParentByParentId(String parentId) {
-		return parentRepository.getByParentId(parentId);
+	public Parent getParentByParentId(String userId) {
+		return parentRepository.getByParentId(userId);
 	}
 
 	public Parent getParentByAssignedClinic(String assignedClinic) {
@@ -46,8 +46,8 @@ public class ParentService {
 		parentRepository.delete(fi);
 	}
 
-	public void deleteById(String parentId) {
-		Parent fi = parentRepository.getByParentId(parentId);
+	public void deleteById(String userId) {
+		Parent fi = parentRepository.getByParentId(userId);
 		parentRepository.delete(fi);
 	}
 	

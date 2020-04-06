@@ -41,7 +41,7 @@ public class Clinic implements Serializable {
 		return clinicId;
 	}
 
-	public void setClinicianId(String clinicId) {
+	public void setClinicId(String clinicId) {
 		this.clinicId = clinicId;
 	}
 

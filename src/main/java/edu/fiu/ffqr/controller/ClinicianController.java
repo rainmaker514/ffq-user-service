@@ -46,8 +46,8 @@ public class ClinicianController{
     }  
 
     @GetMapping("/{userID}")
-	public Clinician getClinician(@PathVariable("userID") String clinicianId) {
-		return clinicianService.getClinicianByClinicianId(clinicianId);
+	public Clinician getClinician(@PathVariable("userID") String userId) {
+		return clinicianService.getClinicianByClinicianId(userId);
 	}
     
     @PostMapping("/createclinician")
@@ -66,8 +66,11 @@ public class ClinicianController{
         if (clinicianService.getClinicianByUsername(user.getUsername()) == null) {
             throw new IllegalArgumentException("A user with Username " + user.getUsername() + " doesn't exist");
         }
-
+        Clinician currentUser = clinicianService.getClinicianByClinicianId(user.getClinicianId());
+        currentUser = user;
+        clinicianService.deleteById(currentUser.getClinicianId());
         return clinicianService.create(user);
+        //return clinicianService.create(user);
     }
 
 
