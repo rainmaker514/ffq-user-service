@@ -26,14 +26,14 @@ public class Clinician implements Serializable{
     @JsonProperty("lastname")
 	private String lastname;
     @JsonProperty("assignedclinic")
-    private int assignedClinic;
+    private String assignedClinic;
     @JsonProperty("previousclinics")
-    private ArrayList<Integer> previousClinics = new ArrayList<Integer>();
+    private ArrayList<String> previousClinics = new ArrayList<String>();
 
 	public Clinician() {}
 	
-    public Clinician(String userId, String username, String abbreviation, String firstname, String lastname, String userpassword, int assignedClinic,
-                            ArrayList<Integer> previousClinics){
+    public Clinician(String userId, String username, String abbreviation, String firstname, String lastname, String userpassword, String assignedClinic,
+                            ArrayList<String> previousClinics){
         this.userId = userId;
 		this.username = username;
 		this.userpassword = userpassword;
@@ -76,10 +76,10 @@ public class Clinician implements Serializable{
         this.lastname = lastname;
     }
 
-    public int getAssignedClinic() {
+    public String getAssignedClinic() {
         return this.assignedClinic;
     }
-    public void setAssignedClinic(int assignedClinic) {
+    public void setAssignedClinic(String assignedClinic) {
         this.assignedClinic = assignedClinic;
         this.previousClinics.add(assignedClinic);
       
@@ -93,10 +93,10 @@ public class Clinician implements Serializable{
 		this.userpassword = userpassword;
     }
     
-    public ArrayList<Integer> getPreviousClinics() {
+    public ArrayList<String> getPreviousClinics() {
         return this.previousClinics;
     }
-    public void setPreviousClinic(ArrayList<Integer> previousClinics) {
+    public void setPreviousClinic(ArrayList<String> previousClinics) {
         this.previousClinics = previousClinics;   
     }
 

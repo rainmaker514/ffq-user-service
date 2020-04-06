@@ -23,7 +23,9 @@ public class Parent implements Serializable{
     @JsonProperty("firstname")
     private String firstname;
     @JsonProperty("lastname")
-	private String lastname;
+    private String lastname;
+    @JsonProperty("assignedclinic")
+    private String assignedClinic;
 	@JsonProperty("assignedclinician")
     private String assignedClinician;
     @JsonProperty("childrennames")
@@ -31,13 +33,14 @@ public class Parent implements Serializable{
 
 	public Parent() {}
 	
-    public Parent(String userId, String username, String firstname, String lastname, String userpassword, boolean isEnabled, String assignedClinician,
-                         ArrayList<String> childrenNames){
+    public Parent(String userId, String username, String firstname, String lastname, String userpassword, boolean isEnabled, String assignedClinic,
+    String assignedClinician, ArrayList<String> childrenNames){
         this.userId = userId;
 		this.username = username;
 		this.userpassword = userpassword;
         this.firstname = firstname;
         this.lastname = lastname;
+        this.assignedClinic = assignedClinic;
         this.assignedClinician = assignedClinician;
         this.childrenNames = childrenNames;
 
@@ -64,6 +67,15 @@ public class Parent implements Serializable{
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
+
+    public String getAssignedClinic() {
+        return this.assignedClinic;
+    }
+    public void setAssignedClinic(String assignedClinic) {
+        this.assignedClinic = assignedClinic;
+            
+    }
+
     public String getAssignedClinician() {
         return this.assignedClinician;
     }

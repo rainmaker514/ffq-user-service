@@ -31,6 +31,11 @@ public class ParentService {
 	public Parent getParentByParentId(String parentId) {
 		return parentRepository.getByParentId(parentId);
 	}
+
+	public Parent getParentByAssignedClinic(String assignedClinic) {
+		return parentRepository.findByAssignedClinic(assignedClinic);
+	}
+
 	
 	public Parent create(Parent user) {
 		return parentRepository.save(user);

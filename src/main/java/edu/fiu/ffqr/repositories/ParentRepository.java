@@ -14,6 +14,8 @@ public interface ParentRepository extends MongoRepository<Parent, String> {
     Parent getByParentId(String parentId);
 	
     Parent findByUsername(String username);
+
+    Parent findByAssignedClinic(String assignedClinic);
   
     
 }

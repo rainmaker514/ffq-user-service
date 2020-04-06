@@ -60,7 +60,7 @@ public class ClinicController{
     @PostMapping("/createclinic")
     public Clinic createClinic(@RequestBody Clinic clinic) throws JsonProcessingException {
 
-      if (clinicService.getClinicByClinicId(clinic.getClinicId()) != null) {
+      if (clinicService.getClinicByClinicName(clinic.getClinicName()) != null) {
             throw new IllegalArgumentException("A user with Username " + clinic.getClinicId() + " already exists");
       }  
 	  return clinicService.create(clinic);
@@ -70,7 +70,7 @@ public class ClinicController{
   @PostMapping("/updateclinic")
     public Clinic updateClinic(@RequestBody Clinic clinic) throws JsonProcessingException {
         
-        if (clinicService.getClinicByClinicId(clinic.getClinicId()) == null) {
+        if (clinicService.getClinicByClinicName(clinic.getClinicName()) == null) {
             throw new IllegalArgumentException("A user with Username " + clinic.getClinicId() + " doesn't exist");
         }
 
@@ -81,7 +81,7 @@ public class ClinicController{
     @PostMapping("/create")
     public Clinic create(@RequestBody Clinic item) throws JsonProcessingException {
         
-        if (clinicService.getClinicByClinicId(item.getClinicId()) != null) {
+        if (clinicService.getClinicByClinicName(item.getClinicName()) != null) {
             throw new IllegalArgumentException("A clinic with userId " + item.getClinicId() + " already exists");
         }
 
