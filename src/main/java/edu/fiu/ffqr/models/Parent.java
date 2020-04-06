@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Parent implements Serializable{
 
 	@JsonProperty("userId")
-	private String parentId; 
+	private String userId; 
 	@JsonProperty("username")
 	private String username;
 	@JsonProperty("userpassword")
@@ -31,9 +31,9 @@ public class Parent implements Serializable{
 
 	public Parent() {}
 	
-    public Parent(String parentId, String username, String firstname, String lastname, String userpassword, boolean isEnabled, String assignedClinician,
+    public Parent(String userId, String username, String firstname, String lastname, String userpassword, boolean isEnabled, String assignedClinician,
                          ArrayList<String> childrenNames){
-        this.parentId = parentId;
+        this.userId = userId;
 		this.username = username;
 		this.userpassword = userpassword;
         this.firstname = firstname;
@@ -44,11 +44,11 @@ public class Parent implements Serializable{
     }
 	
 	public String getParentId() {
-		return this.parentId;
+		return this.userId;
 	}
 
-	public void setParentId(String parentId) {
-		this.parentId = parentId;
+	public void setParentId(String userId) {
+		this.userId = userId;
 	}
 
 	public String getUsername() {

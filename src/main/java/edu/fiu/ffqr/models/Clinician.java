@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Clinician implements Serializable{
 
 	@JsonProperty("userId")
-	private String clinicianId; 
+	private String userId; 
 	@JsonProperty("username")
 	private String username;
 	@JsonProperty("userpassword")
@@ -32,9 +32,9 @@ public class Clinician implements Serializable{
 
 	public Clinician() {}
 	
-    public Clinician(String clinicianId, String username, String abbreviation, String firstname, String lastname, String userpassword, int assignedClinic,
+    public Clinician(String userId, String username, String abbreviation, String firstname, String lastname, String userpassword, int assignedClinic,
                             ArrayList<Integer> previousClinics){
-        this.clinicianId = clinicianId;
+        this.userId = userId;
 		this.username = username;
 		this.userpassword = userpassword;
         this.firstname = firstname;
@@ -48,11 +48,11 @@ public class Clinician implements Serializable{
 
 	
 	public String getClinicianId() {
-		return this.clinicianId;
+		return this.userId;
 	}
 
-	public void setClinicianId(String clinicianId) {
-		this.clinicianId = clinicianId;
+	public void setClinicianId(String userId) {
+		this.userId = userId;
 	}
 
 	public String getUsername() {
