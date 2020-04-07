@@ -11,7 +11,7 @@ import edu.fiu.ffqr.models.Clinician;
 @Repository
 public interface ClinicRepository extends MongoRepository<Clinic, String> {
 
-    Clinic getByClinicId(int clinicId);
+    Clinic getByClinicId(String clinicId);
 
     Clinic getByClinicName(String clinicName);
 

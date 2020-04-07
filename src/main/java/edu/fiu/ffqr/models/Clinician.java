@@ -25,7 +25,7 @@ public class Clinician implements Serializable{
     private String firstname;
     @JsonProperty("lastname")
 	private String lastname;
-    @JsonProperty("assignedclinic")
+    @JsonProperty("assignedClinic")
     private String assignedClinic;
     @JsonProperty("previousclinics")
     private ArrayList<String> previousClinics = new ArrayList<String>();

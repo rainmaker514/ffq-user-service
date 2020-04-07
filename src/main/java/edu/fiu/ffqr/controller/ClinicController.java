@@ -48,7 +48,7 @@ public class ClinicController{
     }  
 
     @GetMapping("/{clinicID}")
-	public Clinic getClinic(@PathVariable("clinicID") int clinicId) {
+	public Clinic getClinic(@PathVariable("clinicID") String clinicId) {
 		return clinicService.getClinicByClinicId(clinicId);
     }
     
@@ -67,10 +67,10 @@ public class ClinicController{
 	  
   }
 
-  @PostMapping("/updateclinic")
+  @PutMapping("/updateclinic")
     public Clinic updateClinic(@RequestBody Clinic clinic) throws JsonProcessingException {
         
-        if (clinicService.getClinicByClinicName(clinic.getClinicName()) == null) {
+        if (clinicService.getClinicByClinicId(clinic.getClinicId()) == null) {
             throw new IllegalArgumentException("A user with Username " + clinic.getClinicId() + " doesn't exist");
         }
 
@@ -107,7 +107,7 @@ public class ClinicController{
 	  
 	  
 	  @DeleteMapping("/delete")
-	  public String delete(@RequestParam int clinicId) {
+	  public String delete(@RequestParam String clinicId) {
         clinicService.delete(clinicId);
 	  	  return "Deleted " + clinicId;
 	  }

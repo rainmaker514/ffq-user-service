@@ -19,7 +19,7 @@ public class Clinic implements Serializable {
 	private String address;
 	@JsonProperty("datebuilt")
 	private String dateBuilt;
-	@JsonProperty("clinicname")
+	@JsonProperty("clinicName")
 	private String clinicName;
 	@JsonProperty("headclinician")
 	private String headClinician;

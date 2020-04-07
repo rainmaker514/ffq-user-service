@@ -60,15 +60,15 @@ public class ClinicianController{
 	  
   }
 
-  @PostMapping("/updateclinician")
+  @PutMapping("/updateclinician")
     public Clinician updateUser(@RequestBody Clinician user) throws JsonProcessingException {
         
         if (clinicianService.getClinicianByUsername(user.getUsername()) == null) {
             throw new IllegalArgumentException("A user with Username " + user.getUsername() + " doesn't exist");
         }
-        Clinician currentUser = clinicianService.getClinicianByUserId(user.getUserId());
+        /*Clinician currentUser = clinicianService.getClinicianByUserId(user.getUserId());
         currentUser = user;
-        clinicianService.deleteById(currentUser.getUserId());
+        clinicianService.deleteById(currentUser.getUserId());*/
         return clinicianService.create(user);
         //return clinicianService.create(user);
     }
