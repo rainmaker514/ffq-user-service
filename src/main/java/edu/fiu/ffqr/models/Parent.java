@@ -46,11 +46,11 @@ public class Parent implements Serializable{
 
     }
 	
-	public String getParentId() {
+	public String getUserId() {
 		return this.userId;
 	}
 
-	public void setParentId(String userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 
@@ -58,9 +58,9 @@ public class Parent implements Serializable{
 		return this.username;
     }
     
-    public String getFullname() {
+    /*public String getFullname() {
         return (this.firstname + " " + this.lastname);
-    }
+    }*/
     public void setFirstname(String firstname) {
         this.firstname = firstname;
     }

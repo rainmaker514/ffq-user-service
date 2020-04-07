@@ -47,7 +47,7 @@ public class ClinicianController{
 
     @GetMapping("/{userID}")
 	public Clinician getClinician(@PathVariable("userID") String userId) {
-		return clinicianService.getClinicianByClinicianId(userId);
+		return clinicianService.getClinicianByUserId(userId);
 	}
     
     @PostMapping("/createclinician")
@@ -66,9 +66,9 @@ public class ClinicianController{
         if (clinicianService.getClinicianByUsername(user.getUsername()) == null) {
             throw new IllegalArgumentException("A user with Username " + user.getUsername() + " doesn't exist");
         }
-        Clinician currentUser = clinicianService.getClinicianByClinicianId(user.getClinicianId());
+        Clinician currentUser = clinicianService.getClinicianByUserId(user.getUserId());
         currentUser = user;
-        clinicianService.deleteById(currentUser.getClinicianId());
+        clinicianService.deleteById(currentUser.getUserId());
         return clinicianService.create(user);
         //return clinicianService.create(user);
     }
@@ -77,7 +77,7 @@ public class ClinicianController{
     @PostMapping("/create")
     public Clinician create(@RequestBody Clinician item) throws JsonProcessingException {
         
-        if (clinicianService.getClinicianByUsername(item.getUsername()) != null) {
+        if (clinicianService.getClinicianByUserId(item.getUsername()) != null) {
             throw new IllegalArgumentException("A clinician with Username " + item.getUsername() + " already exists");
         }
 

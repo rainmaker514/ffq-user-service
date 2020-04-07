@@ -118,7 +118,7 @@ public class AdminController {
     @RequestMapping("/login")
     public boolean login(@RequestBody Admin user) {
         return
-          user.getUsername().equals("user") && user.getPassword().equals("password");
+          user.getUsername().equals("user") && user.getUserpassword().equals("password");
     }
      
     @RequestMapping("/user")

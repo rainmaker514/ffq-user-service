@@ -28,8 +28,8 @@ public class ClinicianService {
 		return clinicianRepository.findByUsername(username);
 	}
 	
-	public Clinician getClinicianByClinicianId(String userId) {
-		return clinicianRepository.getByClinicianId(userId);
+	public Clinician getClinicianByUserId(String userId) {
+		return clinicianRepository.getByUserId(userId);
 	}
 
 	public Clinician getClinicianByAbbreviation(String abbreviation) {
@@ -47,7 +47,7 @@ public class ClinicianService {
 	}
 
 	public void deleteById(String userId) {
-		Clinician fi = clinicianRepository.getByClinicianId(userId);
+		Clinician fi = clinicianRepository.getByUserId(userId);
 		clinicianRepository.delete(fi);
 	}
 	

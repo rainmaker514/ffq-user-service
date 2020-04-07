@@ -47,11 +47,11 @@ public class Clinician implements Serializable{
 
 
 	
-	public String getClinicianId() {
+	public String getUserId() {
 		return this.userId;
 	}
 
-	public void setClinicianId(String userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 
@@ -66,9 +66,9 @@ public class Clinician implements Serializable{
         this.abbreviation = abbreviation;
     }
     
-    public String getFullname() {
+    /*public String getFullname() {
         return (this.firstname + " " + this.lastname);
-    }
+    }*/
     public void setFirstname(String firstname) {
         this.firstname = firstname;
     }

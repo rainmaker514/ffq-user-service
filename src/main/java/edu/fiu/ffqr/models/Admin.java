@@ -70,20 +70,31 @@ public class Admin implements Serializable {
 		this.username = username;
 	}
 
-	public void setPassword(String userpassword){
-		this.userpassword = userpassword;
-	}
-
-	public String getPassword(){
+	public String getUserpassword(){
 		return this.userpassword;
 	}
 
+	public void setUserpassword(String userpassword){
+		this.userpassword = userpassword;
+	}
+
+	
+/*
 	public String getFullname() {
         return (this.firstname + " " + this.lastname);
+	}*/
+	
+	public String getFirstname() {
+        return this.firstname;
     }
     public void setFirstname(String firstname) {
         this.firstname = firstname;
-    }
+	}
+	
+	public String setLastname() {
+        return this.lastname;
+	}
+	
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
