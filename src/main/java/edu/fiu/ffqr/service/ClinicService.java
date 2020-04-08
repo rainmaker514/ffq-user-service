@@ -26,7 +26,7 @@ public class ClinicService {
 		return clinicRepository.findAll();
 	}
 	
-	public Clinic getClinicByClinicId(int clinicId) {
+	public Clinic getClinicByClinicId(String clinicId) {
 		return clinicRepository.getByClinicId(clinicId);
 	}
 
@@ -42,7 +42,7 @@ public class ClinicService {
 		return clinicRepository.save(clinic);
 	}
 
-	public void delete(int clinicId) {
+	public void delete(String clinicId) {
 		Clinic fi = clinicRepository.getByClinicId(clinicId);
 		clinicRepository.delete(fi);
 	}
