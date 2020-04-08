@@ -36,6 +36,8 @@ public class Admin implements Serializable {
 	private String username;
 	@JsonProperty("userpassword")
 	private String userpassword;
+	@JsonProperty("usertype")
+    private String usertype;
 	@JsonProperty("firstname")
 	private String firstname;
 	@JsonProperty("lastname")
@@ -45,10 +47,11 @@ public class Admin implements Serializable {
 
 	public Admin() {}
 	
-	public Admin(String userId, String username, String userpassword, String firstname, String lastname){
+	public Admin(String userId, String username, String userpassword, String usertype, String firstname, String lastname){
         this.userId = userId;
 		this.username = username;
 		this.userpassword = userpassword;
+		this.usertype = usertype;
 		this.firstname = firstname;
 		this.lastname = lastname;
 
@@ -77,6 +80,13 @@ public class Admin implements Serializable {
 	public void setUserpassword(String userpassword){
 		this.userpassword = userpassword;
 	}
+
+	public String getUsertype(){
+        return this.usertype;
+    }
+    public void setUsertype(String usertype){
+        this.usertype = usertype;
+    }
 
 	
 /*

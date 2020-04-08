@@ -19,6 +19,8 @@ public class Clinician implements Serializable{
 	private String username;
 	@JsonProperty("userpassword")
     private String userpassword;
+    @JsonProperty("usertype")
+    private String usertype;
     @JsonProperty("abbreviation")
     private String abbreviation;
     @JsonProperty("firstname")
@@ -32,11 +34,12 @@ public class Clinician implements Serializable{
 
 	public Clinician() {}
 	
-    public Clinician(String userId, String username, String abbreviation, String firstname, String lastname, String userpassword, String assignedClinic,
-                            ArrayList<String> previousClinics){
+    public Clinician(String userId, String username, String abbreviation, String firstname, String lastname, String userpassword, String usertype, 
+                    String assignedClinic, ArrayList<String> previousClinics){
         this.userId = userId;
 		this.username = username;
-		this.userpassword = userpassword;
+        this.userpassword = userpassword;
+        this.usertype = usertype;
         this.firstname = firstname;
         this.lastname = lastname;
         this.assignedClinic = assignedClinic;
@@ -65,6 +68,14 @@ public class Clinician implements Serializable{
     public void setAbbreviation(String abbreviation){
         this.abbreviation = abbreviation;
     }
+
+    public String getUsertype(){
+        return this.usertype;
+    }
+    public void setUsertype(String usertype){
+        this.usertype = usertype;
+    }
+
     
     /*public String getFullname() {
         return (this.firstname + " " + this.lastname);
