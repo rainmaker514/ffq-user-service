@@ -21,23 +21,23 @@ public class Clinic implements Serializable {
 	@JsonProperty("address")
 	private String address;
 	@JsonProperty("datebuilt")
-	private String dateBuilt;
+	private String datebuilt;
 	@JsonProperty("clinicname")
-	private String clinicName;
+	private String clinicname;
 	@JsonProperty("headclinician")
-	private String headClinician;
+	private String headclinician;
 	@JsonProperty("isactive")
-	private boolean isActive;
+	private boolean isactive;
 
 	public Clinic() {}
 	
-	public Clinic(String clinicId, String address, String dateBuilt, String clinicName, String headClinician, boolean isActive){
+	public Clinic(String clinicId, String address, String datebuilt, String clinicname, String headclinician, boolean isactive){
         this.clinicId = clinicId;
 		this.address = address;
-		this.dateBuilt = dateBuilt;
-		this.clinicName = clinicName;
-		this.headClinician = headClinician;
-		this.isActive = isActive;
+		this.datebuilt = datebuilt;
+		this.clinicname = clinicname;
+		this.headclinician = headclinician;
+		this.isactive = isactive;
     }
 	
 
@@ -60,35 +60,35 @@ public class Clinic implements Serializable {
 		return this.address;
     }
     
-    public void setAdress(String address) {
+    public void setAddress(String address) {
         this.address = address;
     }
-    public String getDateBuilt() {
-        return this.dateBuilt;
+    public String getDatebuilt() {
+        return this.datebuilt;
 	}
-	public void setDateBuilt(String dateBuilt) {
-        this.dateBuilt = dateBuilt;
+	public void setDatebuilt(String datebuilt) {
+        this.datebuilt = datebuilt;
 	}
 
-	public String getClinicName() {
-		return this.clinicName;
+	public String getClinicname() {
+		return this.clinicname;
 	}   
-    public void setClinicName(String clinicName) {
-        this.clinicName = clinicName;
+    public void setClinicname(String clinicname) {
+        this.clinicname = clinicname;
     }
 
-	public String getHeadClinician() {
-		return this.headClinician;
+	public String getHeadclinician() {
+		return this.headclinician;
 	}   
-    public void setHeadClinician(String headClinician) {
-        this.headClinician = headClinician;
+    public void setHeadclinician(String headclinician) {
+        this.headclinician = headclinician;
 	}
 	
-	public boolean getIsActive() {
-		return this.isActive;
+	public boolean getIsactive() {
+		return this.isactive;
 	}   
-    public void setIsActive(boolean isActive) {
-        this.isActive = isActive;
+    public void setIsactive(boolean isactive) {
+        this.isactive = isactive;
     }
 
 }

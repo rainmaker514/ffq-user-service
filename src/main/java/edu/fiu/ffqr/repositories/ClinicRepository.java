@@ -15,9 +15,9 @@ public interface ClinicRepository extends MongoRepository<Clinic, String> {
 
     Clinic getByClinicId(String clinicId);
 
-    Clinic getByClinicName(String clinicName);
+    Clinic getByClinicname(String clinicname);
 
-    Clinic getByIsActive(boolean isActive);
+    Clinic getByIsactive(boolean isactive);
 	
   
 }

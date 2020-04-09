@@ -222,7 +222,7 @@ public class DataLoader {
 			}
 			
 			for(Clinic item : clinicList) {
-				System.out.println(item.getClinicName() + "---- Loaded!");
+				System.out.println(item.getClinicname() + "---- Loaded!");
 				this.clinicController.create(item);
 			}
 		} catch (Exception e) {

@@ -75,7 +75,7 @@ public class AdminController {
   @PostMapping("/updateuser")
     public void updateUser(@RequestBody Admin user) throws JsonProcessingException {
         
-        if (adminService.getUserByUsername(user.getUsername()) == null) {
+        if (adminService.getUserByUserId(user.getUserId()) == null) {
             throw new IllegalArgumentException("A user with Username " + user.getUsername() + " doesn't exist");
         }
 

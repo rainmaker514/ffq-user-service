@@ -34,12 +34,12 @@ public class ClinicService {
 		return clinicRepository.getByClinicId(clinicId);
 	}
 
-	public Clinic getClinicByClinicName(String clinicName) {
-		return clinicRepository.getByClinicName(clinicName);
+	public Clinic getClinicByClinicname(String clininame) {
+		return clinicRepository.getByClinicname(clininame);
 	}
 
-	public Clinic getClinicByIsActive(boolean isActive) {
-		return clinicRepository.getByIsActive(isActive);
+	public Clinic getClinicByIsactive(boolean isactive) {
+		return clinicRepository.getByIsactive(isactive);
 	}
 
 	public Clinic create(Clinic clinic) {

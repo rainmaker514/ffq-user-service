@@ -66,7 +66,7 @@ public class ParentController{
   @PutMapping("/updateparent")
     public void updateUser(@RequestBody Parent user) throws JsonProcessingException {
         
-        if (parentService.getParentByUsername(user.getUsername()) == null) {
+        if (parentService.getParentByUserId(user.getUserId()) == null) {
             throw new IllegalArgumentException("A user with Username " + user.getUsername() + " doesn't exist");
         }
 

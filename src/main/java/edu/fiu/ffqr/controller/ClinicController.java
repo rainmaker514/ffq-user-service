@@ -22,6 +22,7 @@ import edu.fiu.ffqr.FFQUserApplication;
 import edu.fiu.ffqr.models.Clinic;
 import edu.fiu.ffqr.models.Clinician;
 import edu.fiu.ffqr.models.SysUser;
+import edu.fiu.ffqr.repositories.ClinicRepository;
 import edu.fiu.ffqr.service.SysUserService;
 //import edu.fiu.ffqr.service.UserService;
 import edu.fiu.ffqr.service.ClinicService;
@@ -35,7 +36,8 @@ public class ClinicController{
 
     @Autowired
     private ClinicService clinicService;
-
+    @Autowired
+    private ClinicRepository clinicRepository;
 
     public ClinicController() {
     }
@@ -54,13 +56,13 @@ public class ClinicController{
     
     @GetMapping("/all/{isActive}")
 	public Clinic getActiveClinics(@PathVariable("isActive") boolean isActive) {
-		return clinicService.getClinicByIsActive(isActive);
+		return clinicService.getClinicByIsactive(isActive);
 	}
     
     @PostMapping("/createclinic")
     public Clinic createClinic(@RequestBody Clinic clinic) throws JsonProcessingException {
 
-      if (clinicService.getClinicByClinicName(clinic.getClinicName()) != null) {
+      if (clinicService.getClinicByClinicId(clinic.getClinicId()) != null) {
             throw new IllegalArgumentException("A user with Username " + clinic.getClinicId() + " already exists");
       }  
 	  return clinicService.create(clinic);
@@ -68,20 +70,31 @@ public class ClinicController{
   }
 
   @PutMapping("/updateclinic")
-    public Clinic updateClinic(@RequestBody Clinic clinic) throws JsonProcessingException {
+    public void updateClinic(@RequestBody Clinic clinic) throws JsonProcessingException {
         
         if (clinicService.getClinicByClinicId(clinic.getClinicId()) == null) {
             throw new IllegalArgumentException("A user with Username " + clinic.getClinicId() + " doesn't exist");
         }
 
-        return clinicService.create(clinic);
+        Clinic currentClinic = clinicService.getClinicByClinicId(clinic.getClinicId());
+
+        currentClinic.setAddress(clinic.getAddress());
+        currentClinic.setDatebuilt(clinic.getDatebuilt());
+        currentClinic.setClinicname(clinic.getClinicname());
+        currentClinic.setHeadclinician(clinic.getHeadclinician());
+        currentClinic.setIsactive(clinic.getIsactive());
+
+
+
+
+        clinicRepository.save(currentClinic);
     }
 
 
     @PostMapping("/create")
     public Clinic create(@RequestBody Clinic item) throws JsonProcessingException {
         
-        if (clinicService.getClinicByClinicName(item.getClinicName()) != null) {
+        if (clinicService.getClinicByClinicId(item.getClinicId()) != null) {
             throw new IllegalArgumentException("A clinic with userId " + item.getClinicId() + " already exists");
         }
 
