@@ -41,6 +41,10 @@ public class AdminService {
 		adminRepository.delete(fi);
 	}
 
+	public Admin getAdminBy_id(ObjectId _id) {
+		return adminRepository.getUserBy_id(_id);
+	}
+
 	public void deleteById(String userId) {
 		Admin fi = adminRepository.getByUserId(userId);
 		adminRepository.delete(fi);

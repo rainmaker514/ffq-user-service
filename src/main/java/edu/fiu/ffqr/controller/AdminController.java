@@ -24,6 +24,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import edu.fiu.ffqr.FFQUserApplication;
 import edu.fiu.ffqr.models.Authenticate;
 import edu.fiu.ffqr.models.SysUser;
+import edu.fiu.ffqr.repositories.AdminRepository;
 import edu.fiu.ffqr.models.Admin;
 import edu.fiu.ffqr.service.SysUserService;
 import edu.fiu.ffqr.service.AdminService;
@@ -36,7 +37,8 @@ public class AdminController {
 
     @Autowired
     private AdminService adminService;
-
+    @Autowired
+    private AdminRepository adminRepository;
 
     public AdminController() {
     }
@@ -71,13 +73,23 @@ public class AdminController {
   }
 
   @PostMapping("/updateuser")
-    public Admin updateUser(@RequestBody Admin user) throws JsonProcessingException {
+    public void updateUser(@RequestBody Admin user) throws JsonProcessingException {
         
         if (adminService.getUserByUsername(user.getUsername()) == null) {
             throw new IllegalArgumentException("A user with Username " + user.getUsername() + " doesn't exist");
         }
 
-        return adminService.create(user);
+        Admin currentUser = adminService.getUserByUserId(user.getUserId());
+
+        currentUser.setUsername(user.getUsername());
+        currentUser.setUserpassword(user.getUserpassword());
+        currentUser.setFirstname(user.getFirstname());
+        currentUser.setLastname(user.getLastname());
+        currentUser.setUsertype(user.getUsertype());
+
+        adminRepository.save(currentUser);
+
+        //return adminService.create(user);
     }
 
 

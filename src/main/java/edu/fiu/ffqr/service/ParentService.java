@@ -28,12 +28,16 @@ public class ParentService {
 		return parentRepository.findByUsername(username);
 	}
 	
+	public Parent getParentBy_id(ObjectId _id) {
+		return parentRepository.getUserBy_id(_id);
+	}
+
 	public Parent getParentByUserId(String userId) {
 		return parentRepository.getByUserId(userId);
 	}
 
-	public Parent getParentByAssignedClinic(String assignedClinic) {
-		return parentRepository.findByAssignedClinic(assignedClinic);
+	public Parent getParentByAssignedclinic(String assignedclinic) {
+		return parentRepository.findByAssignedclinic(assignedclinic);
 	}
 
 	

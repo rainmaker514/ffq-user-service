@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -30,6 +32,8 @@ public class User implements Serializable {
 @Document(collection="admins")
 public class Admin implements Serializable {
 
+	@Id
+	private ObjectId _id;
 	@JsonProperty("userId")
 	private String userId; 
 	@JsonProperty("username")
@@ -56,6 +60,14 @@ public class Admin implements Serializable {
 		this.lastname = lastname;
 
     }
+	
+
+	public ObjectId getId() {
+        return this._id;
+    }
+	public void setId(ObjectId id) {
+        this._id = id;
+	}
 	
 	public String getUserId() {
 		return this.userId;
@@ -101,7 +113,7 @@ public class Admin implements Serializable {
         this.firstname = firstname;
 	}
 	
-	public String setLastname() {
+	public String getLastname() {
         return this.lastname;
 	}
 	

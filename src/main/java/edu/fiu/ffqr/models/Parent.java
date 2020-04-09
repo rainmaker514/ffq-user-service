@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import edu.fiu.ffqr.models.Clinician;
@@ -14,6 +15,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Document(collection="parents")
 public class Parent implements Serializable{
 
+    @Id
+    private ObjectId _id;
 	@JsonProperty("userId")
 	private String userId; 
 	@JsonProperty("username")
@@ -27,26 +30,34 @@ public class Parent implements Serializable{
     @JsonProperty("lastname")
     private String lastname;
     @JsonProperty("assignedclinic")
-    private String assignedClinic;
+    private String assignedclinic;
 	@JsonProperty("assignedclinician")
-    private String assignedClinician;
+    private String assignedclinician;
     @JsonProperty("childrennames")
-    private ArrayList<String> childrenNames = new ArrayList<String>();
+    private ArrayList<String> childrennames = new ArrayList<String>();
 
 	public Parent() {}
 	
-    public Parent(String userId, String username, String userpassword, String usertype, String firstname, String lastname, String assignedClinic,
-    String assignedClinician, ArrayList<String> childrenNames){
+    public Parent(String userId, String username, String userpassword, String usertype, String firstname, String lastname, String assignedclinic,
+    String assignedclinician, ArrayList<String> childrennames){
         this.userId = userId;
 		this.username = username;
         this.userpassword = userpassword;
         this.usertype = usertype;
         this.firstname = firstname;
         this.lastname = lastname;
-        this.assignedClinic = assignedClinic;
-        this.assignedClinician = assignedClinician;
-        this.childrenNames = childrenNames;
+        this.assignedclinic = assignedclinic;
+        this.assignedclinician = assignedclinician;
+        this.childrennames = childrennames;
 
+    }
+
+
+    public ObjectId getId() {
+        return this._id;
+    }
+	public void setId(ObjectId id) {
+        this._id = id;
     }
 	
 	public String getUserId() {
@@ -78,19 +89,27 @@ public class Parent implements Serializable{
         this.lastname = lastname;
     }
 
-    public String getAssignedClinic() {
-        return this.assignedClinic;
+    public String getFirstname() {
+        return this.firstname;
     }
-    public void setAssignedClinic(String assignedClinic) {
-        this.assignedClinic = assignedClinic;
+    public String getLastname() {
+        return this.lastname;
+    }
+    
+
+    public String getAssignedclinic() {
+        return this.assignedclinic;
+    }
+    public void setAssignedclinic(String assignedclinic) {
+        this.assignedclinic = assignedclinic;
             
     }
 
-    public String getAssignedClinician() {
-        return this.assignedClinician;
+    public String getAssignedclinician() {
+        return this.assignedclinician;
     }
-    public void setAssignedClinician(String assignedClinician) {
-        this.assignedClinician = assignedClinician;
+    public void setAssignedclinician(String assignedclinician) {
+        this.assignedclinician = assignedclinician;
             
     }
 
@@ -98,20 +117,20 @@ public class Parent implements Serializable{
 		this.username = username;
 	}
 
-	public void setPassword(String userpassword){
+	public void setUserpassword(String userpassword){
 		this.userpassword = userpassword;
     }
     
-    public ArrayList<String> getChildrenNames() {
-        return this.childrenNames;
+    public String getUserpassword() {
+        return this.userpassword;
     }
 
-    public void setChildrenNames(ArrayList<String> childrenNames) {
-        this.childrenNames = childrenNames;
+    public ArrayList<String> getChildrennames() {
+        return this.childrennames;
     }
 
-    public void addNewChild(String childName){
-        this.childrenNames.add(childName);
+    public void setChildrennames(ArrayList<String> childrennames) {
+        this.childrennames = childrennames;
     }
 
 

@@ -21,6 +21,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import edu.fiu.ffqr.FFQUserApplication;
 import edu.fiu.ffqr.models.Clinician;
 import edu.fiu.ffqr.models.SysUser;
+import edu.fiu.ffqr.repositories.ClinicianRepository;
 import edu.fiu.ffqr.service.SysUserService;
 //import edu.fiu.ffqr.service.UserService;
 import edu.fiu.ffqr.service.ClinicianService;
@@ -33,7 +34,8 @@ public class ClinicianController{
 
     @Autowired
     private ClinicianService clinicianService;
-
+    @Autowired
+    private ClinicianRepository clinicianRepository;
 
     public ClinicianController() {
     }
@@ -60,17 +62,28 @@ public class ClinicianController{
 	  
   }
 
-  @PutMapping("/updateclinician")
-    public Clinician updateUser(@RequestBody Clinician user) throws JsonProcessingException {
+    @PutMapping("/updateclinician")
+    public void updateUser(@RequestBody Clinician user) throws JsonProcessingException {
         
         if (clinicianService.getClinicianByUsername(user.getUsername()) == null) {
             throw new IllegalArgumentException("A user with Username " + user.getUsername() + " doesn't exist");
         }
-        /*Clinician currentUser = clinicianService.getClinicianByUserId(user.getUserId());
-        currentUser = user;
-        clinicianService.deleteById(currentUser.getUserId());*/
-        return clinicianService.create(user);
-        //return clinicianService.create(user);
+
+        Clinician currentUser = clinicianService.getClinicianByUserId(user.getUserId());
+
+        currentUser.setUsername(user.getUsername());
+        currentUser.setUserpassword(user.getUserpassword());
+        currentUser.setFirstname(user.getFirstname());
+        currentUser.setLastname(user.getLastname());
+        currentUser.setUsertype(user.getUsertype());
+
+        currentUser.setAbbreviation(user.getAbbreviation());
+        currentUser.setAssignedclinic(user.getAssignedclinic());
+        currentUser.setPreviousclinic(user.getPreviousclinics());
+        
+
+        clinicianRepository.save(currentUser);
+   
     }
 
 

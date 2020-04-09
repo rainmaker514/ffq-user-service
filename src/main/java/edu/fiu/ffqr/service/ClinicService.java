@@ -26,6 +26,10 @@ public class ClinicService {
 		return clinicRepository.findAll();
 	}
 	
+	public Clinic getClinicBy_id(ObjectId _id) {
+		return clinicRepository.getClinicBy_id(_id);
+	}
+
 	public Clinic getClinicByClinicId(String clinicId) {
 		return clinicRepository.getByClinicId(clinicId);
 	}

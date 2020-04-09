@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
@@ -13,6 +14,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Document(collection="clinics")
 public class Clinic implements Serializable {
 
+	@Id
+	private ObjectId _id;
 	@JsonProperty("clinicId")
 	private String clinicId; 
 	@JsonProperty("address")
@@ -36,6 +39,14 @@ public class Clinic implements Serializable {
 		this.headClinician = headClinician;
 		this.isActive = isActive;
     }
+	
+
+	public ObjectId getId() {
+        return this._id;
+    }
+	public void setId(ObjectId id) {
+        this._id = id;
+	}
 	
 	public String getClinicId() {
 		return clinicId;

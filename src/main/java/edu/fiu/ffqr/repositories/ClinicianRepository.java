@@ -10,6 +10,9 @@ import edu.fiu.ffqr.models.Clinician;
 @Repository
 public interface ClinicianRepository extends MongoRepository<Clinician, String> {
 
+
+  Clinician getUserBy_id(ObjectId _id);
+
   Clinician getByUserId(String userId);
 	
   Clinician findByUsername(String username);

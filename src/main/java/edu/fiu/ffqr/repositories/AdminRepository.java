@@ -12,6 +12,8 @@ import edu.fiu.ffqr.models.Admin;
 @Repository
 public interface AdminRepository extends MongoRepository<Admin, String> {
 
+  Admin getUserBy_id(ObjectId _id);
+
   Admin getByUserId(String userId);
 	
   Admin findByUsername(String username);

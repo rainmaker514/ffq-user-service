@@ -28,6 +28,10 @@ public class ClinicianService {
 		return clinicianRepository.findByUsername(username);
 	}
 	
+	public Clinician getClinicianBy_id(ObjectId _id) {
+		return clinicianRepository.getUserBy_id(_id);
+	}
+
 	public Clinician getClinicianByUserId(String userId) {
 		return clinicianRepository.getByUserId(userId);
 	}

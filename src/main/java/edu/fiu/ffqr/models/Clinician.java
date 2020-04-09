@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
@@ -13,6 +14,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Document(collection="clinicians")
 public class Clinician implements Serializable{
 
+    @Id
+    private ObjectId _id;  
 	@JsonProperty("userId")
 	private String userId; 
 	@JsonProperty("username")
@@ -28,28 +31,34 @@ public class Clinician implements Serializable{
     @JsonProperty("lastname")
 	private String lastname;
     @JsonProperty("assignedclinic")
-    private String assignedClinic;
+    private String assignedclinic;
     @JsonProperty("previousclinics")
-    private ArrayList<String> previousClinics = new ArrayList<String>();
+    private ArrayList<String> previousclinics = new ArrayList<String>();
 
 	public Clinician() {}
 	
     public Clinician(String userId, String username, String abbreviation, String firstname, String lastname, String userpassword, String usertype, 
-                    String assignedClinic, ArrayList<String> previousClinics){
+                    String assignedclinic, ArrayList<String> previousclinics){
         this.userId = userId;
 		this.username = username;
         this.userpassword = userpassword;
         this.usertype = usertype;
         this.firstname = firstname;
         this.lastname = lastname;
-        this.assignedClinic = assignedClinic;
+        this.assignedclinic = assignedclinic;
         this.abbreviation = abbreviation;
-        this.previousClinics = previousClinics;
+        this.previousclinics = previousclinics;
 
     }
 
 
-	
+    /*public ObjectId getId() {
+        return this._id;
+    }*/
+	/*public void setId(ObjectId id) {
+        this._id = id;
+    }*/
+      
 	public String getUserId() {
 		return this.userId;
 	}
@@ -87,28 +96,40 @@ public class Clinician implements Serializable{
         this.lastname = lastname;
     }
 
-    public String getAssignedClinic() {
-        return this.assignedClinic;
+    public String getFirstname() {
+        return this.firstname;
     }
-    public void setAssignedClinic(String assignedClinic) {
-        this.assignedClinic = assignedClinic;
-        this.previousClinics.add(assignedClinic);
-      
+    public String getLastname() {
+        return this.lastname;
+    }
+    
+
+
+
+    public String getAssignedclinic() {
+        return this.assignedclinic;
+    }
+    public void setAssignedclinic(String assignedclinic) {
+        this.assignedclinic = assignedclinic;     
     }
 
 	public void setUsername(String username) {
 		this.username = username;
 	}
 
-	public void setPassword(String userpassword){
+	public void setUserpassword(String userpassword){
 		this.userpassword = userpassword;
     }
-    
-    public ArrayList<String> getPreviousClinics() {
-        return this.previousClinics;
+
+    public String getUserpassword() {
+        return this.userpassword;
     }
-    public void setPreviousClinic(ArrayList<String> previousClinics) {
-        this.previousClinics = previousClinics;   
+    
+    public ArrayList<String> getPreviousclinics() {
+        return this.previousclinics;
+    }
+    public void setPreviousclinic(ArrayList<String> previousclinics) {
+        this.previousclinics = previousclinics;   
     }
 
 

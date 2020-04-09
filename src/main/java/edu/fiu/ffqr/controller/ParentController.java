@@ -20,6 +20,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 import edu.fiu.ffqr.FFQUserApplication;
 import edu.fiu.ffqr.models.SysUser;
+import edu.fiu.ffqr.repositories.ParentRepository;
 import edu.fiu.ffqr.service.SysUserService;
 //import edu.fiu.ffqr.service.UserService;
 import edu.fiu.ffqr.models.Parent;
@@ -34,7 +35,8 @@ public class ParentController{
 
     @Autowired
     private ParentService parentService;
-
+    @Autowired
+    private ParentRepository parentRepository;
 
     public ParentController() {
     }
@@ -62,13 +64,25 @@ public class ParentController{
   }
 
   @PutMapping("/updateparent")
-    public Parent updateUser(@RequestBody Parent user) throws JsonProcessingException {
+    public void updateUser(@RequestBody Parent user) throws JsonProcessingException {
         
         if (parentService.getParentByUsername(user.getUsername()) == null) {
             throw new IllegalArgumentException("A user with Username " + user.getUsername() + " doesn't exist");
         }
 
-        return parentService.create(user);
+        Parent currentUser = parentService.getParentByUserId(user.getUserId());
+        
+        currentUser.setUsername(user.getUsername());
+        currentUser.setUserpassword(user.getUserpassword());
+        currentUser.setFirstname(user.getFirstname());
+        currentUser.setLastname(user.getLastname());
+        currentUser.setUsertype(user.getUsertype());
+
+        currentUser.setAssignedclinic(user.getAssignedclinic());
+        currentUser.setAssignedclinician(user.getAssignedclinician()); 
+        currentUser.setChildrennames(user.getChildrennames());            
+
+        parentRepository.save(currentUser);    
     }
 
 
