@@ -45,8 +45,8 @@ public class ClinicianService {
 	}
 	
 	
-	public void delete(String userName) {
-		Clinician fi = clinicianRepository.findByUsername(userName);
+	public void delete(String username) {
+		Clinician fi = clinicianRepository.getByUserId(username);
 		clinicianRepository.delete(fi);
 	}
 
