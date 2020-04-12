@@ -50,5 +50,10 @@ public class ClinicService {
 		Clinic fi = clinicRepository.getByClinicId(clinicId);
 		clinicRepository.delete(fi);
 	}
+
+	public void deleteById(String clinicId) {
+		Clinic fi = clinicRepository.getByClinicId(clinicId);
+		clinicRepository.delete(fi);
+	}
 	
 }

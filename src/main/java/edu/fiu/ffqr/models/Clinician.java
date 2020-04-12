@@ -52,9 +52,9 @@ public class Clinician implements Serializable{
     }
 
 
-    /*public ObjectId getId() {
+    public ObjectId getId() {
         return this._id;
-    }*/
+    }
 	/*public void setId(ObjectId id) {
         this._id = id;
     }*/
