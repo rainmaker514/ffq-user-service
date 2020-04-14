@@ -115,9 +115,9 @@ public class ParentController{
 	  
 	  
 	  @DeleteMapping("/delete")
-	  public String delete(@RequestParam String username) {
-        parentService.delete(username);
-	  	  return "Deleted " + username;
+	  public String delete(@RequestParam String userId) {
+        parentService.deleteById(userId);
+	  	  return "Deleted " + userId;
 	  }
 	
 }

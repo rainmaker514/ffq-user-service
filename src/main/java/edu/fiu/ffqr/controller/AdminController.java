@@ -122,9 +122,9 @@ public class AdminController {
 	  
 	  
 	  @DeleteMapping("/delete")
-	  public String delete(@RequestParam String username) {
-        adminService.delete(username);
-	  	  return "Deleted " + username;
+	  public String delete(@RequestParam String userId) {
+        adminService.deleteById(userId);
+	  	  return "Deleted " + userId;
       }
       
     @RequestMapping("/login")
