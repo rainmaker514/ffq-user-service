@@ -63,7 +63,7 @@ public class ClinicController{
     public Clinic createClinic(@RequestBody Clinic clinic) throws JsonProcessingException {
 
       if (clinicService.getClinicByClinicId(clinic.getClinicId()) != null) {
-            throw new IllegalArgumentException("A user with Username " + clinic.getClinicId() + " already exists");
+            throw new IllegalArgumentException("A clinic with named " + clinic.getClinicname() + " already exists");
       }  
 	  return clinicService.create(clinic);
 	  
@@ -95,7 +95,7 @@ public class ClinicController{
     public Clinic create(@RequestBody Clinic item) throws JsonProcessingException {
         
         if (clinicService.getClinicByClinicId(item.getClinicId()) != null) {
-            throw new IllegalArgumentException("A clinic with userId " + item.getClinicId() + " already exists");
+            throw new IllegalArgumentException("A clinic with named " + item.getClinicname() + " already exists");
         }
 
         return clinicService.create(item);
@@ -121,7 +121,7 @@ public class ClinicController{
 	  
 	  @DeleteMapping("/delete")
 	  public String delete(@RequestParam String clinicId) {
-        clinicService.delete(clinicId);
+        clinicService.deleteById(clinicId);
 	  	  return "Deleted " + clinicId;
 	  }
 	
