@@ -35,11 +35,13 @@ public class Parent implements Serializable{
     private String assignedclinician;
     @JsonProperty("childrennames")
     private ArrayList<String> childrennames = new ArrayList<String>();
+    @JsonProperty("isactive")
+    private boolean isactive;
 
 	public Parent() {}
 	
     public Parent(String userId, String username, String userpassword, String usertype, String firstname, String lastname, String assignedclinic,
-    String assignedclinician, ArrayList<String> childrennames){
+    String assignedclinician, ArrayList<String> childrennames, boolean isactive){
         this.userId = userId;
 		this.username = username;
         this.userpassword = userpassword;
@@ -49,6 +51,7 @@ public class Parent implements Serializable{
         this.assignedclinic = assignedclinic;
         this.assignedclinician = assignedclinician;
         this.childrennames = childrennames;
+        this.isactive = isactive;
 
     }
 
@@ -56,9 +59,9 @@ public class Parent implements Serializable{
     public ObjectId getId() {
         return this._id;
     }
-	public void setId(ObjectId id) {
+	/*public void setId(ObjectId id) {
         this._id = id;
-    }
+    }*/
 	
 	public String getUserId() {
 		return this.userId;
@@ -79,9 +82,6 @@ public class Parent implements Serializable{
         this.usertype = usertype;
     }
     
-    /*public String getFullname() {
-        return (this.firstname + " " + this.lastname);
-    }*/
     public void setFirstname(String firstname) {
         this.firstname = firstname;
     }
@@ -131,6 +131,14 @@ public class Parent implements Serializable{
 
     public void setChildrennames(ArrayList<String> childrennames) {
         this.childrennames = childrennames;
+    }
+
+    public void setIsactive(boolean isactive){
+        this.isactive = isactive;
+    }
+
+    public boolean getIsactive(){
+        return this.isactive;
     }
 
 
