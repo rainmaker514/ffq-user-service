@@ -34,11 +34,15 @@ public class Clinician implements Serializable{
     private String assignedclinic;
     @JsonProperty("previousclinics")
     private ArrayList<String> previousclinics = new ArrayList<String>();
+    @JsonProperty("isactive")
+    private boolean isactive;
+    
+
 
 	public Clinician() {}
 	
     public Clinician(String userId, String username, String abbreviation, String firstname, String lastname, String userpassword, String usertype, 
-                    String assignedclinic, ArrayList<String> previousclinics){
+                    String assignedclinic, ArrayList<String> previousclinics, boolean isactive){
         this.userId = userId;
 		this.username = username;
         this.userpassword = userpassword;
@@ -48,6 +52,7 @@ public class Clinician implements Serializable{
         this.assignedclinic = assignedclinic;
         this.abbreviation = abbreviation;
         this.previousclinics = previousclinics;
+        this.isactive = isactive;
 
     }
 
@@ -85,10 +90,6 @@ public class Clinician implements Serializable{
         this.usertype = usertype;
     }
 
-    
-    /*public String getFullname() {
-        return (this.firstname + " " + this.lastname);
-    }*/
     public void setFirstname(String firstname) {
         this.firstname = firstname;
     }
@@ -131,6 +132,16 @@ public class Clinician implements Serializable{
     public void setPreviousclinic(ArrayList<String> previousclinics) {
         this.previousclinics = previousclinics;   
     }
+
+    public void setIsactive(boolean isactive){
+        this.isactive = isactive;
+    }
+
+    public boolean getIsactive(){
+        return this.isactive;
+    }
+
+
 
 
 

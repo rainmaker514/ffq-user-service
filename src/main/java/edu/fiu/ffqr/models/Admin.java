@@ -46,18 +46,21 @@ public class Admin implements Serializable {
 	private String firstname;
 	@JsonProperty("lastname")
 	private String lastname;
+	@JsonProperty("isactive")
+    private boolean isactive;
 	
 
 
 	public Admin() {}
 	
-	public Admin(String userId, String username, String userpassword, String usertype, String firstname, String lastname){
+	public Admin(String userId, String username, String userpassword, String usertype, String firstname, String lastname, boolean isactive){
         this.userId = userId;
 		this.username = username;
 		this.userpassword = userpassword;
 		this.usertype = usertype;
 		this.firstname = firstname;
 		this.lastname = lastname;
+		this.isactive = isactive;
 
     }
 	
@@ -65,9 +68,9 @@ public class Admin implements Serializable {
 	public ObjectId getId() {
         return this._id;
     }
-	public void setId(ObjectId id) {
+	/*public void setId(ObjectId id) {
         this._id = id;
-	}
+	}*/
 	
 	public String getUserId() {
 		return this.userId;
@@ -99,12 +102,6 @@ public class Admin implements Serializable {
     public void setUsertype(String usertype){
         this.usertype = usertype;
     }
-
-	
-/*
-	public String getFullname() {
-        return (this.firstname + " " + this.lastname);
-	}*/
 	
 	public String getFirstname() {
         return this.firstname;
@@ -119,6 +116,14 @@ public class Admin implements Serializable {
 	
     public void setLastname(String lastname) {
         this.lastname = lastname;
+	}
+	
+	public void setIsactive(boolean isactive){
+        this.isactive = isactive;
+    }
+
+    public boolean getIsactive(){
+        return this.isactive;
     }
 
 }

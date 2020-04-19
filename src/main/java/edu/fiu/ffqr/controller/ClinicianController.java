@@ -113,8 +113,8 @@ public class ClinicianController{
 		return users;
 	}
 	
-	  
-	  
+	
+	
 	  @DeleteMapping("/delete")
 	  public String delete(@RequestParam String userId) {
         Clinician clinician = this.clinicianService.getClinicianByUserId(userId);
