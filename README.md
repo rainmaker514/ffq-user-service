@@ -11,7 +11,7 @@ This service will serve as a backing store for the users and clinics that will b
 >Load database on startup
 - Start the application with the following args: 
 - -Dmongo.users.load="true"
-- ie) ``mvn spring-boot:run -Dmongo.users.load="true"``
+- ie) ``mvn spring-boot:run -Dspring-boot.run.arguments="--mongo.users.load=true"``
 
 >Database Information
 - Database name: **ffq_database**
